@@ -13,6 +13,7 @@
 # define WINDOWS_W 1920
 # define WINDOWS_H 1280
 
+
 typedef struct s_node {
 	struct s_node	*next;
 	int				x;

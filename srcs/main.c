@@ -27,6 +27,7 @@ void	snake_init(t_game *game)
 {
 	t_snake	*snake;
 	int		*tmp;
+	int		*tmp2;
 	int		**body;
 
 	snake = malloc(sizeof(t_snake));
@@ -36,9 +37,10 @@ void	snake_init(t_game *game)
 	snake->head = tmp;
 	body = calloc(sizeof(int *), 100);
 	body[0] = tmp;
-	tmp[0] = 11;
-	tmp[1] = 10;
-	body[1] = tmp;
+	tmp2 = calloc(sizeof(int), 2);
+	tmp2[0] = 10;
+	tmp2[1] = 11;
+	body[1] = tmp2;
 	snake->body = body;
 	game->snake = snake;
 }
