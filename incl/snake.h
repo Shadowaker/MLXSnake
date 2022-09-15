@@ -12,7 +12,7 @@
 # define H 20
 # define WINDOWS_W 1920
 # define WINDOWS_H 1280
-
+# define MS 60000
 
 typedef struct s_node {
 	struct s_node	*next;
@@ -37,6 +37,7 @@ typedef struct s_foods {
 typedef struct s_snake {
 	int	*head;
 	int **body;
+	int	direction;
 }		t_snake;
 
 typedef struct	s_img {
@@ -52,6 +53,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 
 
 int		key_filter(int keycode, t_game *game);
+void	keep_direction(t_game *game);
 
 
 int 	end_game(t_game *game, int culo);

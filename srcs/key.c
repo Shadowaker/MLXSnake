@@ -41,7 +41,7 @@ int	move_up(t_game *game)
 		tmp = tmp2;
 	}
 	free(tmp);
-	game->rf = 1;
+	game->snake->direction = 0;
 	return (0);
 }
 
@@ -71,7 +71,7 @@ int	move_down(t_game *game)
 		tmp = tmp2;
 	}
 	free(tmp);
-	game->rf = 1;
+	game->snake->direction = 1;
 	return (0);
 }
 
@@ -101,7 +101,7 @@ int	move_right(t_game *game)
 		tmp = tmp2;
 	}
 	free(tmp);
-	game->rf = 1;
+	game->snake->direction = 3;
 	return (0);
 }
 
@@ -131,7 +131,7 @@ int	move_left(t_game *game)
 		tmp = tmp2;
 	}
 	free(tmp);
-	game->rf = 1;
+	game->snake->direction = 0;
 	return (0);
 }
 

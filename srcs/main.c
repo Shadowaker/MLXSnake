@@ -42,6 +42,7 @@ void	snake_init(t_game *game)
 	tmp2[1] = 11;
 	body[1] = tmp2;
 	snake->body = body;
+	snake->direction = -1;
 	game->snake = snake;
 }
 
@@ -95,11 +96,9 @@ void	drawit(t_game *game)
 
 int	game_loop(t_game *game)
 {
-	if (game->rf == 1)
-	{
-		drawit(game);
-		game->rf = 0;
-	}
+	drawit(game);
+	keep_direction(game);
+	usleep(MS);
 	return (0);
 }
 
@@ -108,7 +107,6 @@ int	main(void)
 	t_game	game;
 
 	_init(&game);
-	//drawit(&game);
 	mlx_hook(game.mlx_win, 17, 0, end_game, &game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_key_hook(game.mlx_win, key_filter, &game);

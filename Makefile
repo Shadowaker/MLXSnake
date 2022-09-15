@@ -22,11 +22,14 @@ clean:
 	@${RM} $(OBJ)
 	@make -C ./mlx/mlxo/ clean
 
+clean2:
+	@${RM} $(NAME) ${OBJ}
+
 fclean: clean
 	@${RM} $(NAME) ${OBJ}
 	@make -C ./mlx/mlxo/ clean
 
-re: fclean
+re: clean2
 	@make all
 
 git:
