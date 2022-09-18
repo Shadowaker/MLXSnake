@@ -12,7 +12,7 @@
 # define H 20
 # define WINDOWS_W 1920
 # define WINDOWS_H 1280
-# define MS 60000
+# define MS 120000
 
 typedef struct s_node {
 	struct s_node	*next;
