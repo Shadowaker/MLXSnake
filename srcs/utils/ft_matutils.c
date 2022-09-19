@@ -20,6 +20,7 @@ void	print_mat(char **mat)
 	int	i;
 
 	i = 0;
+	for
 	while (mat[i] != NULL)
 		printf("§%s§\n", mat[i++]);
 	printf("\n");
