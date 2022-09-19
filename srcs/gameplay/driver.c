@@ -33,6 +33,11 @@ void	keep_direction(t_game *game)
 		else
 			end_game(game, 0);
 		}
+		if (game->foods->x == game->snake->head[0] && game->foods->y == game->snake->head[1])
+		{
+			snake_eat(game);
+			spawn_food(game);
+		}
 		debugf(game);
 	}
 }

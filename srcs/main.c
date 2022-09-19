@@ -25,6 +25,11 @@ char	**map_init()
 	return map;
 }
 
+void	food_init(t_game *game)
+{
+	spawn_food(game);
+}
+
 void	snake_init(t_game *game)
 {
 	t_snake	*snake;
@@ -56,14 +61,13 @@ void	_init(t_game *game)
 	game->map = map_init();
 	game->map[10][10] = 'S';
 	game->map[11][10] = 'S';
-	game->map[5][5] = 'G';
-	game->map[H - 1][W - 1] = 'G';
+	food_init(game);
 	snake_init(game);
 }
 
 int	game_loop(t_game *game)
 {
-	if (game->rf != 1)
+	if (game->rf == 0)
 		keep_direction(game);
 	else
 		game->rf = 0;

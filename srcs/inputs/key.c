@@ -6,6 +6,7 @@ void	debugf(t_game *game)
 	printf("\033[93m[DEBUG]\033[0m -----------------------------------------------------\n");
 	for (int i = 0; game->snake->body[i] != NULL; i++)
 		printf("\033[93m[DEBUG]\033[0m body: %d - x: %d - y: %d\n", i, game->snake->body[i][0], game->snake->body[i][1]);
+	printf("\033[93m[DEBUG]\033[0m food: %d - x: %d - y: %d\n", game->foods->exists, game->foods->x, game->foods->y);
 	printf("\033[95m[INFO]\033[0m -----------------------------------------------------\n");
 	print_mat(game->map);
 }
@@ -178,6 +179,11 @@ int	key_filter(int keycode, t_game *game)
 			move_right(game);
 		else
 			end_game(game, 0);
+	}
+	if (game->foods->x == game->snake->head[0] && game->foods->y == game->snake->head[1])
+	{
+		snake_eat(game);
+		spawn_food(game);
 	}
 	game->rf = 1;
 	debugf(game);

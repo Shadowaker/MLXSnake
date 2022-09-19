@@ -5,6 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <time.h>
 
 # include "../mlx/mlxo/mlx.h"
 
@@ -13,12 +14,6 @@
 # define WINDOWS_W 1920
 # define WINDOWS_H 1280
 # define MS 120000
-
-typedef struct s_node {
-	struct s_node	*next;
-	int				x;
-	int				y;
-}		t_node;
 
 typedef struct s_game {
 
@@ -31,7 +26,9 @@ typedef struct s_game {
 }		t_game;
 
 typedef struct s_foods {
-	struct s_node	*coords;
+	int	x;
+	int	y;
+	int	exists;
 }		t_foods;
 
 typedef struct s_snake {
@@ -58,6 +55,8 @@ int		ft_matlen(char **arr);
 void	free_mat(char **mat);
 void	print_mat(char **mat);
 
+void	_init_rand();
+
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	drawit(t_game *game);
 
@@ -69,6 +68,9 @@ int		move_down(t_game *game);
 int		move_left(t_game *game);
 int		move_right(t_game *game);
 void	keep_direction(t_game *game);
+
+void	snake_eat(t_game *game);
+void	spawn_food(t_game *game);
 
 void	debugf(t_game *game);
 int 	end_game(t_game *game, int culo);
