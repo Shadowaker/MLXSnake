@@ -20,9 +20,14 @@ void	print_mat(char **mat)
 	int	i;
 
 	i = 0;
-	for
+	for (int x = 0; x < W + 2; x++)
+		write(1, "§", 3);
+	write(1, "\n", 1);
 	while (mat[i] != NULL)
 		printf("§%s§\n", mat[i++]);
+	for (int x = 0; x < W + 2; x++)
+		write(1, "§", 3);
+	write(1, "\n", 1);
 	printf("\n");
 }
 

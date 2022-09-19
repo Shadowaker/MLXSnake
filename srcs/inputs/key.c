@@ -12,13 +12,13 @@ void	debugf(t_game *game)
 
 int	check_cond(t_game *game, int dir)
 {
-	if (dir == 0 && game->snake->head[1] <= 0)
+	if (dir == 0 && game->snake->head[1] - 1 < 0)
 		return (1);
-	else if (dir == 1 && game->snake->head[0] <= 0)
+	else if (dir == 1 && game->snake->head[0] - 1 < 0)
 		return (1);
-	else if (dir == 2 && game->snake->head[1] >= H)
+	else if (dir == 2 && game->snake->head[1] + 1 >= H)
 		return (1);
-	else if (dir == 3 && game->snake->head[0] >= W)
+	else if (dir == 3 && game->snake->head[0] + 1 >= W)
 		return (1);
 	return (0);
 }

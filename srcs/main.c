@@ -5,6 +5,7 @@ int end_game(t_game *game, int culo)
 {
 	if (game && culo)
 		;
+	//drawit(game);
 	exit(0);
 }
 
@@ -49,12 +50,13 @@ void	snake_init(t_game *game)
 void	_init(t_game *game)
 {
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, WINDOWS_W, WINDOWS_H, "Snake");
+	game->mlx_win = mlx_new_window(game->mlx, WINDOWS_W + 8, WINDOWS_H + 8, "Snake");
 	game->rf = 1;
 	game->map = map_init();
 	game->map[10][10] = 'S';
 	game->map[11][10] = 'S';
 	game->map[5][5] = 'G';
+	game->map[H - 1][W - 1] = 'G';
 	snake_init(game);
 }
 
@@ -78,7 +80,7 @@ void	drawit(t_game *game)
 	int		i;
 	int		j;
 
-	img.img = mlx_new_image(game->mlx, WINDOWS_W, WINDOWS_H);
+	img.img = mlx_new_image(game->mlx, WINDOWS_W + 8, WINDOWS_H + 8);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 	for (i = 0; i < H; i++)
@@ -96,11 +98,12 @@ void	drawit(t_game *game)
 
 int	game_loop(t_game *game)
 {
-	drawit(game);
 	if (game->rf != 1)
 		keep_direction(game);
 	else
 		game->rf = 0;
+	usleep(MS - 20000);
+	drawit(game);
 	usleep(MS);
 	return (0);
 }
