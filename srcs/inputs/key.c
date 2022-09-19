@@ -1,16 +1,24 @@
 
 #include "../incl/snake.h"
 
+void	debugf(t_game *game)
+{
+	printf("\033[93m[DEBUG]\033[0m -----------------------------------------------------\n");
+	for (int i = 0; game->snake->body[i] != NULL; i++)
+		printf("\033[93m[DEBUG]\033[0m body: %d - x: %d - y: %d\n", i, game->snake->body[i][0], game->snake->body[i][1]);
+	printf("\033[95m[INFO]\033[0m -----------------------------------------------------\n");
+	print_mat(game->map);
+}
 
 int	check_cond(t_game *game, int dir)
 {
-	if (dir == 0 && game->snake->head[1] == 0)
+	if (dir == 0 && game->snake->head[1] <= 0)
 		return (1);
-	else if (dir == 1 && game->snake->head[0] == 0)
+	else if (dir == 1 && game->snake->head[0] <= 0)
 		return (1);
-	else if (dir == 2 && game->snake->head[1] == H)
+	else if (dir == 2 && game->snake->head[1] >= H)
 		return (1);
-	else if (dir == 3 && game->snake->head[0] == W)
+	else if (dir == 3 && game->snake->head[0] >= W)
 		return (1);
 	return (0);
 }
@@ -171,8 +179,7 @@ int	key_filter(int keycode, t_game *game)
 		else
 			end_game(game, 0);
 	}
-	printf("\033[93m[DEBUG]\033[0m -----------------------------------------------------\n");
-	for (i = 0; game->snake->body[i] != NULL; i++)
-		printf("\033[93m[DEBUG]\033[0m body: %d - x: %d - y: %d\n", i, game->snake->body[i][0], game->snake->body[i][1]);
+	game->rf = 1;
+	debugf(game);
 	return (0);
 }

@@ -1,7 +1,10 @@
 NAME = snake
 
-SRC = $(wildcard srcs/*.c)
-
+MAIN = srcs/main.c
+GAMEPLAY = $(wildcard srcs/gameplay/*.c)
+INPUTS = $(wildcard srcs/inputs/*.c)
+UTILS = $(wildcard srcs/utils/*.c)
+SRC = $(UTILS) $(GAMEPLAY) $(INPUTS) $(MAIN)
 HDRS = $(wildcard incl/*.h)
 
 OBJ = $(SRC:.c=.o)
@@ -33,7 +36,7 @@ re: clean2
 	@make all
 
 git:
-	@git add srcs/*.c incl/*.h mlx/ Makefile
+	@git add srcs/ incl/*.h mlx/ Makefile
 	git status
 
 .PHONY: all clean fclean re

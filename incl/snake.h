@@ -49,13 +49,27 @@ typedef struct	s_img {
 }				t_img;
 
 char	*dalloc(size_t size, size_t count, char c);
+size_t	ft_strlen(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+char	**ft_matmerge(char **arr1, char **arr2);
+void	ft_cpmat(char **src, char **dst, int start);
+int		ft_matlen(char **arr);
+void	free_mat(char **mat);
+void	print_mat(char **mat);
+
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 
-
 int		key_filter(int keycode, t_game *game);
+
+int		check_cond(t_game *game, int dir);
+int		move_up(t_game *game);
+int		move_down(t_game *game);
+int		move_left(t_game *game);
+int		move_right(t_game *game);
 void	keep_direction(t_game *game);
 
-
+void	debugf(t_game *game);
 int 	end_game(t_game *game, int culo);
 
 #endif

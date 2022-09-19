@@ -97,7 +97,10 @@ void	drawit(t_game *game)
 int	game_loop(t_game *game)
 {
 	drawit(game);
-	keep_direction(game);
+	if (game->rf != 1)
+		keep_direction(game);
+	else
+		game->rf = 0;
 	usleep(MS);
 	return (0);
 }
