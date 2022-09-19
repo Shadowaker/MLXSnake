@@ -59,6 +59,7 @@ void	free_mat(char **mat);
 void	print_mat(char **mat);
 
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	drawit(t_game *game);
 
 int		key_filter(int keycode, t_game *game);
 

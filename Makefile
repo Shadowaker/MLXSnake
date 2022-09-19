@@ -4,7 +4,8 @@ MAIN = srcs/main.c
 GAMEPLAY = $(wildcard srcs/gameplay/*.c)
 INPUTS = $(wildcard srcs/inputs/*.c)
 UTILS = $(wildcard srcs/utils/*.c)
-SRC = $(UTILS) $(GAMEPLAY) $(INPUTS) $(MAIN)
+GRAPHIC = $(wildcard srcs/graphic/*.c)
+SRC = $(UTILS) $(GRAPHIC) $(GAMEPLAY) $(INPUTS) $(MAIN)
 HDRS = $(wildcard incl/*.h)
 
 OBJ = $(SRC:.c=.o)
