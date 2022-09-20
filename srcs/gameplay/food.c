@@ -11,11 +11,13 @@ void	spawn_food(t_game *game)
 		// rand() % (upper - lower + 1)) + lower
 		i = rand() % ((30 - 0 + 1) + 0);
 		j = rand() % ((30 - 0 + 1) + 0);
-		if (game->map[i][j] == 'S')
+		if (i >= 0 && j >= 0 && i < H && j < W)
 		{
-			i = -1;
-			j = -1;
+			if (game->map[i][j] != 'S')
+				continue ;
 		}
+		i = -1;
+		j = -1;
 	}
 	game->foods->y = i;
 	game->foods->x = j;

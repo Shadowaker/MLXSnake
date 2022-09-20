@@ -71,7 +71,7 @@ int	game_loop(t_game *game)
 		keep_direction(game);
 	else
 		game->rf = 0;
-	usleep(MS - 20000);
+	usleep(MS - 40000);
 	drawit(game);
 	usleep(MS);
 	return (0);
