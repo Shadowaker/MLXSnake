@@ -22,6 +22,7 @@ typedef struct s_game {
 	char				**map;
 	struct	s_snake		*snake;
 	struct	s_foods		*foods;
+	int					points;
 	int					rf;
 }		t_game;
 
@@ -48,6 +49,10 @@ typedef struct	s_img {
 char	*dalloc(size_t size, size_t count, char c);
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_itoa(int n);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_dotjoin(char const *s1, char const *s2, char *sep);
+char	*ft_freejoin(char *s1, char *s2);
 
 char	**ft_matmerge(char **arr1, char **arr2);
 void	ft_cpmat(char **src, char **dst, int start);

@@ -56,8 +56,9 @@ void	snake_init(t_game *game)
 void	_init(t_game *game)
 {
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, WINDOWS_W + 8, WINDOWS_H + 8, "Snake");
+	game->mlx_win = mlx_new_window(game->mlx, WINDOWS_W + 8, WINDOWS_H + 74, "Snake");
 	game->rf = 1;
+	game->points = 0;
 	game->map = map_init();
 	game->map[10][10] = 'S';
 	game->map[11][10] = 'S';
