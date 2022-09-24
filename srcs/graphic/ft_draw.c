@@ -3,7 +3,7 @@
 void	draw_string(t_game *game, int *arr, char *s, int offset)
 {
 	mlx_string_put(game->mlx, game->mlx_win, arr[0] * 30,
-		(arr[1] * 30) + offset, 0x0FFFFFFF, s);
+		(arr[1] * 30) + offset, 0x00FFFF00, s);
 }
 
 void	draw_piece(t_img *img, int x, int y, int color)
@@ -24,13 +24,17 @@ void	draw_points(t_game *game)
 {
 	char	*points;
 	char	*s;
-	int		arr[2] = {20, WINDOWS_H + 20};
+	int		*arr;
 
+	arr = malloc(sizeof(int) * 2);
+	arr[0] = 2;
+	arr[1] = 43;
 	points = ft_itoa(game->points);
 	s = ft_strjoin("POINTS: ", points);
 	free(points);
 	draw_string(game, arr, s, 0);
 	free(s);
+	free(arr);
 }
 
 void	drawit(t_game *game)
@@ -39,7 +43,7 @@ void	drawit(t_game *game)
 	int		i;
 	int		j;
 
-	img.img = mlx_new_image(game->mlx, WINDOWS_W + 8, WINDOWS_H + 74);
+	img.img = mlx_new_image(game->mlx, WINDOWS_W + 8, WINDOWS_H + 72);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
 	for (i = 0; i < H; i++)
@@ -54,6 +58,6 @@ void	drawit(t_game *game)
 	}
 	for (i = 0; i < WINDOWS_W; i++)
 		my_mlx_pixel_put(&img, i, WINDOWS_H, 0x00FF0000);
-	draw_points(game);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, img.img, 0, 0);
+	draw_points(game);
 }

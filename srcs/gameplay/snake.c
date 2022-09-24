@@ -14,4 +14,5 @@ void	snake_eat(t_game *game)
 	tail[1] = game->snake->body[i - 1][1];
 	game->snake->body[i] = tail;
 	game->foods->exists = 0;
+	game->points += 1;
 }
